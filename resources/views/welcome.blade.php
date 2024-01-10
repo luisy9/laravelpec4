@@ -854,6 +854,25 @@
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="m-5">
                 <h1 class="text-center dark:text-white" style="font-size: 30px">Eventos Culturales</h1>
+                <ul class="dark:text-white">
+                    {{-- @foreach ($dosPrimeroEventosReales as $index => $evento)
+                        <div class="">
+                            <h2>Evento: {{ $index + 1 }}</h2>
+                            <li>{{ $evento->nombre }}</li>
+                            <li>{{ $evento->fecha }}</li>
+                            <li><img src={{ $evento->imagen }} alt={{ $evento->nombre }} /></li>
+                        </div>
+                    @endforeach --}}
+
+                    @foreach ($arrayEvents as $index => $evento)
+                        <div class="">
+                            <h2>Evento: {{ $index + 1 }}</h2>
+                            <li>{{ $evento->nombre }}</li>
+                            <li>{{ $evento->fecha }}</li>
+                            <li><img src='images/{{ $evento->imagen }}' alt={{ $evento->nombre }} /></li>
+                        </div>
+                    @endforeach
+                </ul>
             </div>
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
