@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\EventosCulturales;
-use Database\Seeders\Factory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
@@ -22,7 +20,7 @@ class EventosCulturalesSeeder extends Seeder
             'fecha' =>  $faker->date,
             'ubicacion' => $faker->city,
             'description' => $faker->paragraph,
-            'imagen' => $faker->image(),
+            'imagen' => $faker->imageUrl($width=80, $height=80),
             'autor' => $faker->name
         ]);
        }
