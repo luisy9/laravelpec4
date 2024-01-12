@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+
+@section('content')
+<div class="max-w-7xl mx-auto p-6 lg:p-8">
+    <div class="m-5">
+        <h1 class="text-center dark:text-white" style="font-size: 30px">Eventos Culturales</h1>
+        <ul class="dark:text-white">
+            @foreach ($arrayEvents as $index => $evento)
+                <div class="">
+                    <h2>Evento: {{ $index + 1 }}</h2>
+                    <li><a href="/eventos/{{ $evento->id }}">{{ $evento->nombre }}</a></li>
+                    <li>{{ $evento->fecha }}</li>
+                    <li><img src='images/{{ $evento->imagen }}' alt={{ $evento->nombre }} /></li>
+                </div>
+            @endforeach
+        </ul>
+    </div>
+@endsection
+
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -403,6 +422,11 @@
 
         .ml-4 {
             margin-left: 1rem
+        }
+
+        .mr-4 {
+            margin-right: 1rem;
+            cursor: pointer;
         }
 
         .mt-16 {
@@ -829,27 +853,15 @@
         }
     </style>
 </head>
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        @include('layouts.navigation');
+    </h2>
+</x-slot>
 
 <body class="antialiased">
     <div
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                        in</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
 
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="m-5">
@@ -858,7 +870,7 @@
                     @foreach ($arrayEvents as $index => $evento)
                         <div class="">
                             <h2>Evento: {{ $index + 1 }}</h2>
-                            <li>{{ $evento->nombre }}</li>
+                            <li><a href="/eventos/{{ $evento->id }}">{{ $evento->nombre }}</a></li>
                             <li>{{ $evento->fecha }}</li>
                             <li><img src='images/{{ $evento->imagen }}' alt={{ $evento->nombre }} /></li>
                         </div>
@@ -867,7 +879,25 @@
             </div>
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-
+                    @if (Route::has('login'))
+                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                        <a
+                            class="mr-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                        @auth
+                            <a href="{{ url('/dashboard') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                                in</a>
+        
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
                 </div>
             </div>
 
@@ -897,4 +927,5 @@
     </div>
 </body>
 
-</html>
+</html> --}}
+{{-- @endsection --}}

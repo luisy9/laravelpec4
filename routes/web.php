@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [EventosCulturales::class, 'getEventos']);
 
+Route::get('/eventos/{id}', [EventosCulturales::class, 'getEventById']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

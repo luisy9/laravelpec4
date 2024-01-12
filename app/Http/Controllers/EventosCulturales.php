@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\EventosCulturales as EventsCulturals;
 
 class EventosCulturales extends Controller{
@@ -13,5 +11,10 @@ class EventosCulturales extends Controller{
 
         $arrayEvents = $getEventosReales->concat($getEventosFake);
         return view('welcome', compact('arrayEvents'));
+    }
+
+    public function getEventById($id){
+        $eventById = EventsCulturals::find($id);
+        return view('eventos.event', compact('eventById'));
     }
 }
