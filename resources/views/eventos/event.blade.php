@@ -1,3 +1,7 @@
+@php
+    $url = 'images/';
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -10,7 +14,11 @@
                 <p>Ubicacion: {{ $eventById['ubicacion'] }}</p>
                 <p>{{ $eventById['description'] }}</p>
                 <p>{{ $eventById['autor'] }}</p>
-                <img src='../images/{{ $eventById['imagen'] }}' />
+                @if (file_exists($url . $eventById['imagen']))
+                    <li><img src="{{ asset('images/' . $eventById['imagen']) }}" alt={{ $eventById['imagen'] }} /></li>
+                @else
+                    <li><img src="{{ asset($eventById['imagen']) }}" alt={{ $eventById['imagen'] }} /></li>
+                @endif
             </ul>
         </div>
     </div>
