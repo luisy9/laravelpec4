@@ -24,6 +24,10 @@ Route::get('/', [EventosCulturales::class, 'getEventos']);
 
 Route::get('/eventos/{id}', [EventosCulturales::class, 'getEventById']);
 
+Route::get('/api/evento/{id}', [EventosCulturales::class, 'getEventByIdApi']);
+
+Route::get('/api/events/{pages}', [EventosCulturales::class, 'getEventsByPaginationApi']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,4 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

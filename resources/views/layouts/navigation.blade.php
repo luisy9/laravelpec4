@@ -60,9 +60,9 @@
                 @else
                     <a href="/"
                         class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 px-3 py-2">Home</a>
-                    <a href="/api/events"
+                    <a href="/api/events/{{1}}"
                         class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 px-3 py-2">API_events</a>
-                    <a href="/api/event"
+                    <a href="/api/evento/{{1}}"
                         class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 px-3 py-2">API_event</a>
                     <a href="{{ route('login') }}"
                         class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 px-3 py-2">Login</a>
